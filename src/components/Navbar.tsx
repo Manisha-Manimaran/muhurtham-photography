@@ -10,24 +10,9 @@ const navItems: {
   href?: string;
   dropdown?: { label: string; href: string }[];
 }[] = [
-  {
-    label: "Weddings",
-    dropdown: [
-      { label: "Hindu Wedding", href: "/gallery?category=Hindu+Wedding" },
-      { label: "Christian Wedding", href: "/gallery?category=Christian+Wedding" },
-      { label: "Muslim Wedding", href: "/gallery?category=Muslim+Wedding" },
-      { label: "Destination Wedding", href: "/gallery?category=Engagement" },
-      { label: "Outdoor Wedding", href: "/gallery?category=Outdoor" },
-    ],
-  },
+  { label: "Weddings", href: "/weddings" },
   { label: "Videos", href: "/videos" },
-  {
-    label: "Baby",
-    dropdown: [
-      { label: "Maternity Shoot", href: "/#baby" },
-      { label: "Baby Shoot", href: "/#baby" },
-    ],
-  },
+  { label: "Baby", href: "/baby" },
   { label: "Contact", href: "/#contact" },
 ];
 

@@ -19,23 +19,13 @@ const categories = [
 ];
 
 const albums = [
-  { couple: "Arjun + Priya", date: "Dec 2025", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
-  { couple: "Vignesh + Meera", date: "Nov 2025", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" },
-  { couple: "Rahul + Sneha", date: "Oct 2025", category: "Christian Wedding", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" },
-  { couple: "Karthik + Divya", date: "Sep 2025", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&q=80" },
-  { couple: "Naveen + Anjali", date: "Aug 2025", category: "Muslim Wedding", img: "https://images.unsplash.com/photo-1509631120183-7e0556b2129f?w=600&q=80" },
-  { couple: "Suresh + Kavya", date: "Jul 2025", category: "Engagement", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" },
-  { couple: "Bala + Harini", date: "May 2025", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?w=600&q=80" },
-  { couple: "Deepak + Anu", date: "Apr 2025", category: "Christian Wedding", img: "https://images.unsplash.com/photo-1525218287586-4f8b6b8b5b1f?w=600&q=80" },
-  { couple: "Ganesh + Priya", date: "Mar 2025", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=600&q=80" },
-  { couple: "Harish + Swetha", date: "Feb 2025", category: "Engagement", img: "https://images.unsplash.com/photo-1525253086316-d0c936c814f8?w=600&q=80" },
-  { couple: "Ishaan + Fatima", date: "Jan 2025", category: "Muslim Wedding", img: "https://images.unsplash.com/photo-1591604466107-ec97e577d9e0?w=600&q=80" },
-  { couple: "Pre-Wedding Love Story", date: "Mar 2026", category: "Pre-Wedding", img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80" },
-  { couple: "Sunset Pre-Wedding", date: "Feb 2026", category: "Pre-Wedding", img: "https://images.unsplash.com/photo-1518893883800-45cd0954574b?w=600&q=80" },
-  { couple: "Baby Aarav", date: "Jan 2026", category: "Baby Shoot", img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80" },
-  { couple: "Baby Nila", date: "Dec 2025", category: "Baby Shoot", img: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80" },
-  { couple: "Maternity Glow", date: "Nov 2025", category: "Maternity", img: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80" },
-  { couple: "Expecting Joy", date: "Oct 2025", category: "Maternity", img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80" },
+  { couple: "Hindu Wedding", date: "Traditional ceremonies", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
+  { couple: "Christian Wedding", date: "Timeless love stories", category: "Christian Wedding", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" },
+  { couple: "Muslim Wedding", date: "Elegant celebrations", category: "Muslim Wedding", img: "https://images.unsplash.com/photo-1591604466107-ec97e577d9e0?w=600&q=80" },
+  { couple: "Engagement", date: "Love in the air", category: "Engagement", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" },
+  { couple: "Pre-Wedding", date: "Love stories begin here", category: "Pre-Wedding", img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80" },
+  { couple: "Baby Shoot", date: "Precious little moments", category: "Baby Shoot", img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80" },
+  { couple: "Maternity", date: "Glow of new life", category: "Maternity", img: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80" },
 ];
 
 function GalleryContent() {

@@ -6,14 +6,9 @@ import SectionTitle from "./SectionTitle";
 import TiltCard from "./TiltCard";
 
 const albums = [
-  { couple: "Arjun + Priya", date: "Dec 2025", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
-  { couple: "Vignesh + Meera", date: "Nov 2025", img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" },
-  { couple: "Rahul + Sneha", date: "Oct 2025", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" },
-  { couple: "Karthik + Divya", date: "Sep 2025", img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&q=80" },
-  { couple: "Naveen + Anjali", date: "Aug 2025", img: "https://images.unsplash.com/photo-1509631120183-7e0556b2129f?w=600&q=80" },
-  { couple: "Suresh + Kavya", date: "Jul 2025", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" },
-  { couple: "Ajay + Nisha", date: "Jun 2025", img: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&q=80" },
-  { couple: "Bala + Harini", date: "May 2025", img: "https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?w=600&q=80" },
+  { couple: "Hindu Wedding", date: "Traditional ceremonies", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
+  { couple: "Muslim Wedding", date: "Elegant celebrations", img: "https://images.unsplash.com/photo-1591604466107-ec97e577d9e0?w=600&q=80" },
+  { couple: "Christian Wedding", date: "Timeless love stories", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" },
 ];
 
 export default function FeaturedWeddings() {
@@ -25,7 +20,7 @@ export default function FeaturedWeddings() {
           subtitle="Each wedding tells a unique story. Here are some of our favourite moments captured recently."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {albums.map((album, i) => (
             <motion.div
               key={album.couple}
