@@ -12,9 +12,9 @@ const config: Config = {
         background: "#ffffff",
         foreground: "#1a1a1a",
         pink: {
-          DEFAULT: "#f472b6",
-          light: "#f9a8d4",
-          dark: "#ec4899",
+          DEFAULT: "#ec4899",
+          light: "#f472b6",
+          dark: "#db2777",
         },
         charcoal: "#1a1a1a",
         ivory: "#fefefe",
