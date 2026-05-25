@@ -7,9 +7,10 @@ interface TiltCardProps {
   children: React.ReactNode;
   className?: string;
   tiltDegree?: number;
+  onClick?: () => void;
 }
 
-export default function TiltCard({ children, className, tiltDegree = 12 }: TiltCardProps) {
+export default function TiltCard({ children, className, tiltDegree = 12, onClick }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -36,6 +37,7 @@ export default function TiltCard({ children, className, tiltDegree = 12 }: TiltC
       onMouseLeave={handleLeave}
       style={{ rotateX: springY, rotateY: springX, perspective: 1000, transformStyle: "preserve-3d" }}
       className={className}
+      onClick={onClick}
     >
       {children}
     </motion.div>

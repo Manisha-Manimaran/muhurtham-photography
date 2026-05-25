@@ -11,12 +11,36 @@ import ImageWithFallback from "@/components/ImageWithFallback";
 const categories = ["All", "Hindu Wedding", "Christian Wedding", "Muslim Wedding", "Engagement"];
 
 const albums = [
-  { couple: "Arjun + Priya", date: "Dec 2025", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
-  { couple: "Karthik + Divya", date: "Sep 2025", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&q=80" },
-  { couple: "Ganesh + Priya", date: "Mar 2025", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=600&q=80" },
-  { couple: "Rahul + Sneha", date: "Oct 2025", category: "Christian Wedding", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" },
-  { couple: "Naveen + Anjali", date: "Aug 2025", category: "Muslim Wedding", img: "https://images.unsplash.com/photo-1509631120183-7e0556b2129f?w=600&q=80" },
-  { couple: "Suresh + Kavya", date: "Jul 2025", category: "Engagement", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" },
+  {
+    couple: "Arjun + Priya", date: "Dec 2025", category: "Hindu Wedding",
+    img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
+    href: "/hindu-wedding",
+  },
+  {
+    couple: "Karthik + Divya", date: "Sep 2025", category: "Hindu Wedding",
+    img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&q=80",
+    href: "/hindu-wedding",
+  },
+  {
+    couple: "Ganesh + Priya", date: "Mar 2025", category: "Hindu Wedding",
+    img: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=600&q=80",
+    href: "/hindu-wedding",
+  },
+  {
+    couple: "Rahul + Sneha", date: "Oct 2025", category: "Christian Wedding",
+    img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80",
+    href: "/christian-wedding",
+  },
+  {
+    couple: "Naveen + Anjali", date: "Aug 2025", category: "Muslim Wedding",
+    img: "https://images.unsplash.com/photo-1509631120183-7e0556b2129f?w=600&q=80",
+    href: "/muslim-wedding",
+  },
+  {
+    couple: "Suresh + Kavya", date: "Jul 2025", category: "Engagement",
+    img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80",
+    href: "/engagement",
+  },
 ];
 
 export default function WeddingsPage() {
@@ -38,6 +62,25 @@ export default function WeddingsPage() {
           </div>
         </section>
 
+        <section className="py-16 md:py-20 px-4 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+              <div>
+                <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-6">Wedding Photography</h2>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Your wedding day is a tapestry of emotions — from the sacred rituals that bind two souls to the joyful celebrations that bring families together. We believe every glance, every tear, and every smile tells a story worth preserving forever.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  Our team specializes in capturing the authentic essence of your celebration, blending candid moments with timeless couple portraits. From the intricate details of your mehendi to the grandeur of your reception, we document your love story with artistry and heart.
+                </p>
+              </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                <ImageWithFallback src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80" alt="Wedding Photography" className="w-full h-[400px] object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-wrap justify-center gap-2 mb-12">
@@ -54,14 +97,16 @@ export default function WeddingsPage() {
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredAlbums.map((album, i) => (
                   <motion.div key={album.couple} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                    <TiltCard className="group cursor-pointer">
-                      <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4 shadow-sm">
-                        <ImageWithFallback src={album.img} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                      <h3 className="font-serif text-lg text-charcoal">{album.couple}</h3>
-                      <p className="text-gray-400 text-xs mt-1">{album.date} &middot; {album.category}</p>
-                    </TiltCard>
+                    <Link href={album.href}>
+                      <TiltCard className="group cursor-pointer">
+                        <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4 shadow-sm">
+                          <ImageWithFallback src={album.img} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </div>
+                        <h3 className="font-serif text-lg text-charcoal">{album.couple}</h3>
+                        <p className="text-gray-400 text-xs mt-1">{album.date} &middot; {album.category}</p>
+                      </TiltCard>
+                    </Link>
                   </motion.div>
                 ))}
               </motion.div>

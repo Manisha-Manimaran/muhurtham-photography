@@ -37,6 +37,25 @@ export default function BabyPage() {
           </div>
         </section>
 
+        <section className="py-16 md:py-20 px-4 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+              <div>
+                <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-6">Baby Photography</h2>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  The arrival of a baby is life's most beautiful miracle. Those first smiles, tiny fingers, and sleepy eyes — these fleeting moments deserve to be preserved with care and tenderness.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  We create a warm, safe environment where your little one feels comfortable, allowing us to capture their purest expressions and precious milestones. From newborn portraits to monthly growth shoots, every session is crafted to celebrate the joy your baby brings into your world.
+                </p>
+              </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                <ImageWithFallback src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800&q=80" alt="Baby Photography" className="w-full h-[400px] object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-wrap justify-center gap-2 mb-12">

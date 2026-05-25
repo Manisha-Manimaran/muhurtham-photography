@@ -7,26 +7,25 @@ import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ImageWithFallback from "@/components/ImageWithFallback";
+import TiltCard from "@/components/TiltCard";
 
 const categories = [
   "All",
   "Hindu Wedding",
-  "Christian Wedding",
   "Muslim Wedding",
-  "Engagement",
-  "Pre-Wedding",
+  "Christian Wedding",
   "Baby Shoot",
-  "Maternity",
+  "Engagement",
+  "Maternity Shoot",
 ];
 
 const albums = [
-  { couple: "Hindu Wedding", date: "Traditional ceremonies", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
-  { couple: "Christian Wedding", date: "Timeless love stories", category: "Christian Wedding", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" },
-  { couple: "Muslim Wedding", date: "Elegant celebrations", category: "Muslim Wedding", img: "https://images.unsplash.com/photo-1591604466107-ec97e577d9e0?w=600&q=80" },
-  { couple: "Engagement", date: "Love in the air", category: "Engagement", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" },
-  { couple: "Pre-Wedding", date: "Love stories begin here", category: "Pre-Wedding", img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80" },
-  { couple: "Baby Shoot", date: "Precious little moments", category: "Baby Shoot", img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80" },
-  { couple: "Maternity", date: "Glow of new life", category: "Maternity", img: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80" },
+  { title: "Hindu Wedding", date: "Traditional ceremonies", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80", href: "/hindu-wedding" },
+  { title: "Muslim Wedding", date: "Elegant celebrations", category: "Muslim Wedding", img: "https://images.unsplash.com/photo-1591604466107-ec97e577d9e0?w=600&q=80", href: "/muslim-wedding" },
+  { title: "Christian Wedding", date: "Timeless love stories", category: "Christian Wedding", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80", href: "/christian-wedding" },
+  { title: "Baby Shoot", date: "Precious little moments", category: "Baby Shoot", img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80", href: "/baby-shoot" },
+  { title: "Engagement", date: "Love in the air", category: "Engagement", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80", href: "/engagement" },
+  { title: "Maternity Shoot", date: "Glow of new life", category: "Maternity Shoot", img: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80", href: "/maternity-shoot" },
 ];
 
 function GalleryContent() {
@@ -48,11 +47,11 @@ function GalleryContent() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <ImageWithFallback src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80" alt="Gallery" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-black/20" />
         </div>
         <div className="relative z-10 text-center px-4">
           <h1 className="font-serif text-5xl md:text-7xl text-white mb-4">Our Gallery</h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">
             A curated collection of our finest wedding photography work.
           </p>
         </div>
@@ -65,7 +64,7 @@ function GalleryContent() {
               <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 ${
+                className={`px-5 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 ${
                   activeTab === cat
                     ? "bg-pink text-white shadow-md shadow-pink/20"
                     : "bg-white text-charcoal border border-gray-200 hover:border-pink hover:text-pink"
@@ -82,25 +81,25 @@ function GalleryContent() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
             >
               {filteredAlbums.map((album, i) => (
                 <motion.div
-                  key={album.couple}
+                  key={album.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className="group cursor-pointer"
                 >
-                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4 shadow-sm">
-                    <ImageWithFallback src={album.img} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                      <span className="text-white text-sm font-medium tracking-wider uppercase">View Album</span>
-                    </div>
-                  </div>
-                  <h3 className="font-serif text-lg text-charcoal">{album.couple}</h3>
-                  <p className="text-gray-400 text-xs mt-1">{album.date} &middot; {album.category}</p>
+                  <Link href={album.href} className="block group">
+                    <TiltCard className="relative overflow-hidden rounded-xl aspect-[4/5] shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <ImageWithFallback src={album.img} alt={album.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="text-white font-medium text-sm sm:text-base">{album.title}</h3>
+                        <p className="text-white/60 text-xs mt-0.5">{album.date}</p>
+                      </div>
+                    </TiltCard>
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>
@@ -128,7 +127,7 @@ export default function GalleryPage() {
       <Suspense fallback={
         <main>
           <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-black/20" />
             <div className="relative z-10 text-center px-4">
               <h1 className="font-serif text-5xl md:text-7xl text-white mb-4">Our Gallery</h1>
             </div>

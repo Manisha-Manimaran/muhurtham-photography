@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TiltCard from "@/components/TiltCard";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 const videos = [
   {
@@ -98,6 +99,25 @@ export default function VideosPage() {
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/70 text-lg max-w-2xl mx-auto">
               Relive the captured moments with us
             </motion.p>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-20 px-4 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+              <div>
+                <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-6">Wedding Films &amp; Videos</h2>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  A photograph captures a moment, but a film brings your entire story to life. Our cinematic wedding films are crafted to preserve not just the visuals, but the laughter, the tears, and the emotions that make your day unforgettable.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  From the nervous excitement of the preparations to the joyous celebrations on the dance floor, we weave every candid moment into a beautiful narrative. Let us tell your love story through the art of cinematic storytelling.
+                </p>
+              </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                <ImageWithFallback src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80" alt="Wedding Films & Videos" className="w-full h-[400px] object-cover" />
+              </div>
+            </div>
           </div>
         </section>
 
