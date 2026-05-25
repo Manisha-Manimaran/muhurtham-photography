@@ -3,15 +3,30 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const navItems: {
   label: string;
   href?: string;
   dropdown?: { label: string; href: string }[];
 }[] = [
-  { label: "Weddings", href: "/weddings" },
-  { label: "Baby", href: "/baby" },
+  {
+    label: "Weddings",
+    dropdown: [
+      { label: "Hindu Wedding", href: "/hindu-wedding" },
+      { label: "Muslim Wedding", href: "/muslim-wedding" },
+      { label: "Christian Wedding", href: "/christian-wedding" },
+      { label: "View All", href: "/weddings" },
+    ],
+  },
+  {
+    label: "Baby",
+    dropdown: [
+      { label: "Baby Shoot", href: "/baby-shoot" },
+      { label: "Maternity Shoot", href: "/maternity-shoot" },
+      { label: "View All", href: "/baby" },
+    ],
+  },
   { label: "Videos", href: "/videos" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -22,6 +37,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -51,6 +67,8 @@ export default function Navbar() {
       const id = href.replace("/#", "#");
       const el = document.querySelector(id);
       el?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(href);
     }
   };
 

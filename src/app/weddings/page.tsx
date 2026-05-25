@@ -7,45 +7,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TiltCard from "@/components/TiltCard";
 import ImageWithFallback from "@/components/ImageWithFallback";
-
-const categories = ["All", "Hindu Wedding", "Christian Wedding", "Muslim Wedding", "Engagement"];
-
-const albums = [
-  {
-    couple: "Arjun + Priya", date: "Dec 2025", category: "Hindu Wedding",
-    img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
-    href: "/hindu-wedding",
-  },
-  {
-    couple: "Karthik + Divya", date: "Sep 2025", category: "Hindu Wedding",
-    img: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&q=80",
-    href: "/hindu-wedding",
-  },
-  {
-    couple: "Ganesh + Priya", date: "Mar 2025", category: "Hindu Wedding",
-    img: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=600&q=80",
-    href: "/hindu-wedding",
-  },
-  {
-    couple: "Rahul + Sneha", date: "Oct 2025", category: "Christian Wedding",
-    img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80",
-    href: "/christian-wedding",
-  },
-  {
-    couple: "Naveen + Anjali", date: "Aug 2025", category: "Muslim Wedding",
-    img: "https://images.unsplash.com/photo-1509631120183-7e0556b2129f?w=600&q=80",
-    href: "/muslim-wedding",
-  },
-  {
-    couple: "Suresh + Kavya", date: "Jul 2025", category: "Engagement",
-    img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80",
-    href: "/engagement",
-  },
-];
+import { albums, categories, categoryContent } from "@/data/albums";
 
 export default function WeddingsPage() {
-  const [activeTab, setActiveTab] = useState("All");
-  const filteredAlbums = activeTab === "All" ? albums : albums.filter(a => a.category === activeTab);
+  const [activeTab, setActiveTab] = useState<(typeof categories)[number]>("Hindu Wedding");
+  const content = categoryContent[activeTab];
+  const filteredAlbums = albums.filter(a => a.category === activeTab);
 
   return (
     <>
@@ -62,64 +29,71 @@ export default function WeddingsPage() {
           </div>
         </section>
 
-        <section className="py-16 md:py-20 px-4 bg-gray-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-              <div>
-                <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-6">Wedding Photography</h2>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  Your wedding day is a tapestry of emotions — from the sacred rituals that bind two souls to the joyful celebrations that bring families together. We believe every glance, every tear, and every smile tells a story worth preserving forever.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Our team specializes in capturing the authentic essence of your celebration, blending candid moments with timeless couple portraits. From the intricate details of your mehendi to the grandeur of your reception, we document your love story with artistry and heart.
-                </p>
-              </div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg">
-                <ImageWithFallback src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80" alt="Wedding Photography" className="w-full h-[400px] object-cover" />
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="py-16 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-wrap justify-center gap-2 mb-12">
+            <div className="flex flex-wrap justify-center gap-3 mb-14">
               {categories.map(cat => (
-                <button key={cat} onClick={() => setActiveTab(cat)}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 ${activeTab === cat ? "bg-pink text-white shadow-md" : "bg-white text-charcoal border border-gray-200 hover:border-pink hover:text-pink"}`}>
+                <button
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  className={`px-6 py-2.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
+                    activeTab === cat
+                      ? "bg-pink text-white shadow-md shadow-pink/20"
+                      : "bg-white text-charcoal border border-gray-200 hover:border-pink hover:text-pink"
+                  }`}
+                >
                   {cat}
                 </button>
               ))}
             </div>
 
             <AnimatePresence mode="wait">
-              <motion.div key={activeTab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredAlbums.map((album, i) => (
-                  <motion.div key={album.couple} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                    <Link href={album.href}>
-                      <TiltCard className="group cursor-pointer">
-                        <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4 shadow-sm">
-                          <ImageWithFallback src={album.img} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </div>
-                        <h3 className="font-serif text-lg text-charcoal">{album.couple}</h3>
-                        <p className="text-gray-400 text-xs mt-1">{album.date} &middot; {album.category}</p>
-                      </TiltCard>
-                    </Link>
-                  </motion.div>
-                ))}
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-16">
+                  <div>
+                    <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-6">{content.heading}</h2>
+                    <p className="text-gray-600 leading-relaxed">{content.text}</p>
+                  </div>
+                  <div className="relative overflow-hidden rounded-xl shadow-lg">
+                    <ImageWithFallback src={content.image} alt={content.heading} className="w-full h-[400px] object-cover" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {filteredAlbums.length > 0 ? (
+                    filteredAlbums.map((album, i) => (
+                      <motion.div
+                        key={album.slug}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.05 }}
+                      >
+                        <Link href={`/albums/${album.slug}`}>
+                          <TiltCard className="group cursor-pointer">
+                            <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-4 shadow-sm">
+                              <ImageWithFallback src={album.img} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
+                            <h3 className="font-serif text-lg text-charcoal">{album.couple}</h3>
+                            <p className="text-gray-400 text-xs mt-1">{album.date}</p>
+                          </TiltCard>
+                        </Link>
+                      </motion.div>
+                    ))
+                  ) : (
+                    <div className="col-span-full text-center py-16">
+                      <p className="text-gray-400">No albums available in this category yet.</p>
+                    </div>
+                  )}
+                </div>
               </motion.div>
             </AnimatePresence>
-
-            <div className="text-center mt-12">
-              <Link href="/gallery" className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium tracking-widest uppercase text-pink border-2 border-pink rounded-lg hover:bg-pink hover:text-white transition-all duration-300">
-                View All Albums
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
           </div>
         </section>
 
