@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import SectionTitle from "./SectionTitle";
 import TiltCard from "./TiltCard";
+import ImageWithFallback from "./ImageWithFallback";
 
 const albums = [
   { couple: "Hindu Wedding", date: "Traditional ceremonies", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
@@ -31,13 +32,7 @@ export default function FeaturedWeddings() {
               className="group cursor-pointer"
             >
               <TiltCard className="relative overflow-hidden rounded-2xl aspect-[3/4] mb-4 shadow-sm">
-                <img
-                  src={album.img}
-                  alt={album.couple}
-                  loading="lazy"
-                  onError={(e) => { (e.target as HTMLImageElement).style.background = '#e5e7eb'; (e.target as HTMLImageElement).style.padding = '60%' }}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                <ImageWithFallback src={album.img} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
                   <span className="text-white text-sm font-medium tracking-wider uppercase">

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 const categories = [
   "All",
@@ -46,7 +47,7 @@ function GalleryContent() {
     <main>
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80" alt="Gallery" className="w-full h-full object-cover" />
+          <ImageWithFallback src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80" alt="Gallery" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 text-center px-4">
@@ -92,7 +93,7 @@ function GalleryContent() {
                   className="group cursor-pointer"
                 >
                   <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4 shadow-sm">
-                    <img src={album.img} alt={album.couple} loading="lazy" onError={(e) => { (e.target as HTMLImageElement).style.background = '#e5e7eb'; (e.target as HTMLImageElement).style.padding = '40%' }} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <ImageWithFallback src={album.img} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
                       <span className="text-white text-sm font-medium tracking-wider uppercase">View Album</span>

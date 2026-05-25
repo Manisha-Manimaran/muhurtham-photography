@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
+import ImageWithFallback from "./ImageWithFallback";
 
 const testimonials = [
   {
@@ -74,11 +75,7 @@ export default function Testimonials() {
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-pink/20">
-                  <img
-                    src={t.img}
-                    alt={t.name}
-                    className="w-full h-full object-cover"
-                  />
+                  <ImageWithFallback src={t.img} alt={t.name} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h4 className="font-serif text-lg text-charcoal">

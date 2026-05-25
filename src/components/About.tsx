@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
+import ImageWithFallback from "./ImageWithFallback";
 
 export default function About() {
   return (
@@ -21,11 +22,7 @@ export default function About() {
             className="relative"
           >
             <div className="relative overflow-hidden rounded-2xl aspect-[4/5]">
-              <img
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80"
-                alt="Muhurtham Photography wedding photography"
-                className="w-full h-full object-cover"
-              />
+              <ImageWithFallback src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Muhurtham Photography wedding photography" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-pink/10 rounded-2xl -z-10" />

@@ -11,8 +11,8 @@ const navItems: {
   dropdown?: { label: string; href: string }[];
 }[] = [
   { label: "Weddings", href: "/weddings" },
-  { label: "Videos", href: "/videos" },
   { label: "Baby", href: "/baby" },
+  { label: "Videos", href: "/videos" },
   { label: "Contact", href: "/#contact" },
 ];
 

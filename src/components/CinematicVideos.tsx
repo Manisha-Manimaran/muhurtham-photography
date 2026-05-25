@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import SectionTitle from "./SectionTitle";
+import ImageWithFallback from "./ImageWithFallback";
 
 const categories = [
   "All",
@@ -75,12 +76,7 @@ export default function CinematicVideos() {
                 className="group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-2xl aspect-video mb-4 bg-gray-100 shadow-sm group-hover:shadow-lg transition-shadow duration-300">
-                  <img
-                    src={video.thumbnail}
-                    alt={video.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <ImageWithFallback src={video.thumbnail} alt={video.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-all duration-300 group-hover:bg-black/20">
                     <div className="w-16 h-16 rounded-full bg-pink/90 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-lg">
                       <svg

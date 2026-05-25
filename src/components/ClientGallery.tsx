@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import SectionTitle from "./SectionTitle";
+import ImageWithFallback from "./ImageWithFallback";
 
 const clientAlbums = [
   {
@@ -85,12 +86,7 @@ export default function ClientGallerySection() {
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={album.thumb}
-                  alt={album.couple}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
+                <ImageWithFallback src={album.thumb} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                 <div className="absolute top-3 right-3">
                   <span className="bg-white/90 text-charcoal text-xs px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-1.5 shadow-sm">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">

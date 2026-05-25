@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 const albums = [
   {
@@ -110,7 +111,7 @@ export default function ClientGalleryPage() {
                   className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <img src={album.thumb} alt={album.couple} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                    <ImageWithFallback src={album.thumb} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     <div className="absolute top-3 right-3">
                       <span className="bg-white/90 text-charcoal text-xs px-3 py-1.5 rounded-full backdrop-blur-sm shadow-sm flex items-center gap-1.5">

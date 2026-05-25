@@ -6,6 +6,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TiltCard from "@/components/TiltCard";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 const categories = ["All", "Baby Shoot", "Maternity"];
 
@@ -54,7 +55,7 @@ export default function BabyPage() {
                   <motion.div key={album.title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
                     <TiltCard className="group cursor-pointer">
                       <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4 shadow-sm">
-                        <img src={album.img} alt={album.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <ImageWithFallback src={album.img} alt={album.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
                       <h3 className="font-serif text-lg text-charcoal">{album.title}</h3>

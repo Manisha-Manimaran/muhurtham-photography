@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 
 import TiltCard from "./TiltCard";
+import ImageWithFallback from "./ImageWithFallback";
 
 const categories = [
   { id: "all", label: "All" },
@@ -106,11 +107,7 @@ export default function WeddingCategories() {
                 key={i}
                 className="relative overflow-hidden rounded-2xl aspect-[4/5] group cursor-pointer"
               >
-                <img
-                  src={src}
-                  alt={`${active} wedding ${i + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                <ImageWithFallback src={src} alt={`${active} wedding ${i + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
                   <span className="text-white text-sm font-medium tracking-wider uppercase">

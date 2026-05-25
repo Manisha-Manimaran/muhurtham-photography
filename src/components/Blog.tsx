@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
+import ImageWithFallback from "./ImageWithFallback";
 
 const posts = [
   {
@@ -50,12 +51,7 @@ export default function Blog() {
               className="group cursor-pointer"
             >
               <div className="relative overflow-hidden rounded-2xl aspect-[16/10] mb-5 shadow-sm">
-                <img
-                  src={post.img}
-                  alt={post.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                <ImageWithFallback src={post.img} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute top-3 left-3">
                   <span className="bg-pink text-white text-xs px-3 py-1 rounded-lg font-medium">
                     {post.category}

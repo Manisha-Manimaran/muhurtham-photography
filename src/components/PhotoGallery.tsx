@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import SectionTitle from "./SectionTitle";
 import TiltCard from "./TiltCard";
+import ImageWithFallback from "./ImageWithFallback";
 
 const categories = [
   "All",
@@ -79,13 +80,7 @@ export default function PhotoGallery() {
                 className="masonry-item"
               >
                 <TiltCard className="group relative overflow-hidden rounded-2xl cursor-pointer">
-                  <img
-                    src={img.src}
-                    alt={img.title}
-                    loading="lazy"
-                    onError={(e) => { (e.target as HTMLImageElement).style.background = '#e5e7eb'; (e.target as HTMLImageElement).style.padding = '40%' }}
-                    className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  <ImageWithFallback src={img.src} alt={img.title} className="w-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
                     <span className="text-white text-sm font-medium tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
                       {img.category}
