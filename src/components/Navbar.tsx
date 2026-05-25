@@ -16,7 +16,6 @@ const navItems: {
       { label: "Hindu Wedding", href: "/hindu-wedding" },
       { label: "Muslim Wedding", href: "/muslim-wedding" },
       { label: "Christian Wedding", href: "/christian-wedding" },
-      { label: "View All", href: "/weddings" },
     ],
   },
   {
@@ -24,7 +23,6 @@ const navItems: {
     dropdown: [
       { label: "Baby Shoot", href: "/baby-shoot" },
       { label: "Maternity Shoot", href: "/maternity-shoot" },
-      { label: "View All", href: "/baby" },
     ],
   },
   { label: "Videos", href: "/videos" },

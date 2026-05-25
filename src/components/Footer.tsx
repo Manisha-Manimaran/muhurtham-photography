@@ -3,12 +3,12 @@
 import Link from "next/link";
 
 const footerLinks = [
-  { label: "Weddings", href: "/#weddings" },
+  { label: "Weddings", href: "/hindu-wedding" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Outdoor", href: "/#weddings" },
-  { label: "Video", href: "/videos" },
-  { label: "Locations", href: "/#contact" },
-  { label: "Latest Blog Updates", href: "/#blog" },
+  { label: "Videos", href: "/videos" },
+  { label: "Baby & Maternity", href: "/baby-shoot" },
+  { label: "Engagement", href: "/engagement" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socialLinks = [

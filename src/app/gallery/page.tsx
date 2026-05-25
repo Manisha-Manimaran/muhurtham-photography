@@ -20,12 +20,12 @@ const categories = [
 ];
 
 const albums = [
-  { title: "Hindu Wedding", date: "Traditional ceremonies", category: "Hindu Wedding", img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80", href: "/hindu-wedding" },
-  { title: "Muslim Wedding", date: "Elegant celebrations", category: "Muslim Wedding", img: "https://images.unsplash.com/photo-1591604466107-ec97e577d9e0?w=600&q=80", href: "/muslim-wedding" },
-  { title: "Christian Wedding", date: "Timeless love stories", category: "Christian Wedding", img: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80", href: "/christian-wedding" },
-  { title: "Baby Shoot", date: "Precious little moments", category: "Baby Shoot", img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80", href: "/baby-shoot" },
-  { title: "Engagement", date: "Love in the air", category: "Engagement", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80", href: "/engagement" },
-  { title: "Maternity Shoot", date: "Glow of new life", category: "Maternity Shoot", img: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80", href: "/maternity-shoot" },
+  { title: "Hindu Wedding", date: "Traditional ceremonies", category: "Hindu Wedding", img: "/images/1519741497674-611481863552.jpg", href: "/hindu-wedding" },
+  { title: "Muslim Wedding", date: "Elegant celebrations", category: "Muslim Wedding", img: "/assets/muslim-wedding/hero-fallback.jpg", href: "/muslim-wedding" },
+  { title: "Christian Wedding", date: "Timeless love stories", category: "Christian Wedding", img: "/images/1465495976277-4387d4b0b4c6.jpg", href: "/christian-wedding" },
+  { title: "Baby Shoot", date: "Precious little moments", category: "Baby Shoot", img: "/images/1519689680058-324335c77eba.jpg", href: "/baby-shoot" },
+  { title: "Engagement", date: "Love in the air", category: "Engagement", img: "/images/1511795409834-ef04bbd61622.jpg", href: "/engagement" },
+  { title: "Maternity Shoot", date: "Glow of new life", category: "Maternity Shoot", img: "/images/1544027993-37dbfe43562a.jpg", href: "/maternity-shoot" },
 ];
 
 function GalleryContent() {
@@ -46,7 +46,7 @@ function GalleryContent() {
     <main>
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <ImageWithFallback src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80" alt="Gallery" className="w-full h-full object-cover" />
+          <ImageWithFallback src="/images/1492691527719-9d1e07e534b4.jpg" alt="Gallery" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-black/20" />
         </div>
         <div className="relative z-10 text-center px-4">

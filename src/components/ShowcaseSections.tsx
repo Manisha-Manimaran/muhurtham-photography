@@ -19,7 +19,7 @@ const sections = [
     ],
     video: "/videos/hero-wedding.mp4",
     poster:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+      "/images/1519741497674-611481863552.jpg",
     cta: "View Wedding Gallery",
     ctaHref: "/gallery",
     reversed: false,
@@ -38,7 +38,7 @@ const sections = [
     ],
     video: "/videos/hero-wedding.mp4",
     poster:
-      "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=80",
+      "/images/1519689680058-324335c77eba.jpg",
     cta: "View Baby Gallery",
     ctaHref: "/gallery?category=Baby+Shoot",
     reversed: true,

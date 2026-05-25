@@ -13,21 +13,21 @@ const videos = [
     title: "Wedding Cinematic",
     category: "Wedding Films",
     src: "/videos/hero-wedding.mp4",
-    poster: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+    poster: "/images/1519741497674-611481863552.jpg",
   },
   {
     id: 2,
     title: "Baby Shoot Memories",
     category: "Baby Shoot",
     src: "/videos/hero-wedding.mp4",
-    poster: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=80",
+    poster: "/images/1519689680058-324335c77eba.jpg",
   },
   {
     id: 3,
     title: "Maternity Glow",
     category: "Maternity",
     src: "/videos/hero-wedding.mp4",
-    poster: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80",
+    poster: "/images/1544027993-37dbfe43562a.jpg",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function VideosPage() {
       <main>
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-pink/90 via-pink-dark/80 to-charcoal/90" />
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80')] bg-cover bg-center opacity-30" />
+          <div className="absolute inset-0 bg-[url('/images/1519741497674-611481863552.jpg')] bg-cover bg-center opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20" />
           <div className="relative z-10 text-center px-4">
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-serif text-5xl md:text-7xl text-white mb-4">Our Videos</motion.h1>
@@ -115,7 +115,7 @@ export default function VideosPage() {
                 </p>
               </div>
               <div className="relative overflow-hidden rounded-xl shadow-lg">
-                <ImageWithFallback src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80" alt="Wedding Films & Videos" className="w-full h-[400px] object-cover" />
+                <ImageWithFallback src="/images/1492691527719-9d1e07e534b4.jpg" alt="Wedding Films & Videos" className="w-full h-[400px] object-cover" />
               </div>
             </div>
           </div>

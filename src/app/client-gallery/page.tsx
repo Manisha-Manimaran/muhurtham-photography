@@ -9,19 +9,19 @@ import ImageWithFallback from "@/components/ImageWithFallback";
 const albums = [
   {
     id: 1, couple: "Arjun & Priya", date: "12 Dec 2025", venue: "The Leela Palace, Chennai",
-    thumb: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80", photos: 248,
+    thumb: "/images/1519741497674-611481863552.jpg", photos: 248,
   },
   {
     id: 2, couple: "Vignesh & Meera", date: "28 Nov 2025", venue: "ITC Grand Chola, Chennai",
-    thumb: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80", photos: 312,
+    thumb: "/images/1511285560929-80b456fea0bc.jpg", photos: 312,
   },
   {
     id: 3, couple: "Rahul & Sneha", date: "15 Oct 2025", venue: "Taj Coromandel, Chennai",
-    thumb: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80", photos: 189,
+    thumb: "/images/1465495976277-4387d4b0b4c6.jpg", photos: 189,
   },
   {
     id: 4, couple: "Karthik & Divya", date: "05 Sep 2025", venue: "Park Hyatt, Chennai",
-    thumb: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&q=80", photos: 276,
+    thumb: "/images/1515934751635-c81c6bc9a2d8.jpg", photos: 276,
   },
   {
     id: 5, couple: "Naveen & Anjali", date: "20 Aug 2025", venue: "Radisson Blu, Chennai",
@@ -29,11 +29,11 @@ const albums = [
   },
   {
     id: 6, couple: "Ajay & Nisha", date: "10 Jun 2025", venue: "GRT Grand, Chennai",
-    thumb: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80", photos: 334,
+    thumb: "/images/1511795409834-ef04bbd61622.jpg", photos: 334,
   },
   {
     id: 7, couple: "Suresh & Kavya", date: "05 Jul 2025", venue: "Vivanta, Trichy",
-    thumb: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&q=80", photos: 156,
+    thumb: "/images/1505236858219-8359eb29e329.jpg", photos: 156,
   },
   {
     id: 8, couple: "Bala & Harini", date: "18 May 2025", venue: "Anantaa, Pondicherry",

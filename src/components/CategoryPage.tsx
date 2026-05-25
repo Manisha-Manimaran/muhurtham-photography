@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import TiltCard from "@/components/TiltCard";
 import ImageWithFallback from "@/components/ImageWithFallback";
+import type { Album } from "@/data/albums";
 
 interface CategoryPageProps {
   title: string;
@@ -11,7 +13,8 @@ interface CategoryPageProps {
   contentHeading: string;
   contentText: string;
   contentImage: string;
-  photos: string[];
+  photos?: string[];
+  albums?: Album[];
 }
 
 export default function CategoryPage({
@@ -22,6 +25,7 @@ export default function CategoryPage({
   contentText,
   contentImage,
   photos,
+  albums: clientAlbums,
 }: CategoryPageProps) {
   return (
     <main>
@@ -60,27 +64,56 @@ export default function CategoryPage({
           >
             <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-4">Our Portfolio</h2>
             <p className="text-gray-500 max-w-xl mx-auto">
-              A glimpse of our work in {title.toLowerCase()}
+              {clientAlbums
+                ? `Explore our ${title.toLowerCase()} client albums`
+                : `A glimpse of our work in ${title.toLowerCase()}`}
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-            {photos.map((photo, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (i % 9) * 0.05 }}
-                className="group relative overflow-hidden rounded-lg aspect-[4/5] shadow-sm hover:shadow-md transition-shadow duration-300"
-              >
-                <ImageWithFallback
-                  src={photo}
-                  alt={`${title} photo ${i + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </motion.div>
-            ))}
-          </div>
+
+          {clientAlbums ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+              {clientAlbums.map((album, i) => (
+                <motion.div
+                  key={album.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                >
+                  <Link href={`/albums/${album.slug}`}>
+                    <TiltCard className="group cursor-pointer">
+                      <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-3 shadow-sm">
+                        <ImageWithFallback src={album.img} alt={album.couple} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                      <h3 className="font-serif text-lg text-charcoal">{album.couple}</h3>
+                      <p className="text-gray-400 text-xs mt-0.5">{album.date} &middot; {album.category}</p>
+                      <span className="inline-block mt-2 text-pink text-xs font-medium tracking-wider uppercase">View Album</span>
+                    </TiltCard>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              {photos?.map((photo, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (i % 9) * 0.05 }}
+                  className="group relative overflow-hidden rounded-lg aspect-[4/5] shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <ImageWithFallback
+                    src={photo}
+                    alt={`${title} photo ${i + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

@@ -18,9 +18,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const album = albums.find(a => a.slug === slug);
   if (!album) return { title: "Album Not Found" };
+  const isWedding = album.category.includes("Wedding");
   return {
-    title: `${album.couple} Wedding | Muhurtham Photography`,
-    description: `${album.couple}'s wedding album — ${album.category}`,
+    title: `${album.couple}${isWedding ? " Wedding" : ""} | Muhurtham Photography`,
+    description: `${album.couple}'s ${album.category.toLowerCase()} album — ${album.category}`,
   };
 }
 
@@ -41,7 +42,7 @@ export default async function AlbumPage({ params }: Props) {
           <div className="relative z-10 text-center px-4">
             <p className="text-white/50 text-sm tracking-widest uppercase mb-3">{album.category} &middot; {album.date}</p>
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white mb-4">{album.couple}</h1>
-            <p className="text-white/70 text-lg max-w-xl mx-auto">Their wedding story, captured with love.</p>
+            <p className="text-white/70 text-lg max-w-xl mx-auto">{album.category.includes("Wedding") ? "Their wedding story, captured with love." : "Captured with love and care."}</p>
           </div>
         </section>
 
@@ -54,16 +55,16 @@ export default async function AlbumPage({ params }: Props) {
 
         <section className="py-16 md:py-24 px-4 bg-gray-50">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 md:gap-4 [column-fill:_balance]">
               {album.photos.map((photo, i) => (
                 <div
                   key={i}
-                  className="group relative overflow-hidden rounded-lg aspect-[4/5] shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="break-inside-avoid mb-3 md:mb-4 overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                   <ImageWithFallback
                     src={photo}
                     alt={`${album.couple} photo ${i + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-auto"
                   />
                 </div>
               ))}
@@ -74,7 +75,7 @@ export default async function AlbumPage({ params }: Props) {
         <section className="py-16 px-4 bg-pink">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">Ready to Create Your Album?</h2>
-            <p className="text-white/80 text-lg mb-8">Let&apos;s capture your love story with the same passion and artistry.</p>
+            <p className="text-white/80 text-lg mb-8">Let&apos;s capture your precious moments with the same passion and artistry.</p>
             <Link href="/#contact" className="px-8 py-3.5 bg-white text-pink text-sm font-medium tracking-widest uppercase rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg inline-block">Book Us Now</Link>
           </div>
         </section>
